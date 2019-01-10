@@ -2179,6 +2179,11 @@ which@^1.2.9:
   dependencies:
     isexe "^2.0.0"
 
+wicket@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.npmjs.org/wicket/-/wicket-1.3.3.tgz#0e973fd0a087184e922a4e5ce1265472f98f848a"
+  integrity sha512-4T4ezDeeJO89SCZhtjaqhzuhat5BubUESbdWw+ISLef0wTD7ye6uBkMqd5rXQzp/2aF31qS4Bz3iJJNYbFhOkA==
+
 wrap-ansi@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz#d8fc3d284dd05794fe84973caecdd1cf824fdd85"

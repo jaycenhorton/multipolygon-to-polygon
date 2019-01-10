@@ -1,6 +1,7 @@
 const turf = require('@turf/turf');
 const argv = require('yargs').argv;
 const fs = require('fs');
+const Wkt = require('wicket');
 
 const writeFile = ({ geoCollection }) => {
   console.log(
@@ -22,6 +23,12 @@ const createGeoJSON = coordinates => {
   };
   const collection = turf.geometryCollection([feature]);
   return collection;
+};
+
+const getWKT = ({ geometry }) => {
+  const wkt = new Wkt.Wkt();
+  wkt.fromObject(geometry);
+  return wkt.write();
 };
 
 const drawShortestPathBetweenPolys = ({ coordinates }) => {
@@ -76,12 +83,15 @@ if (argv.input && argv.output) {
   const {
     features: [
       {
+        geometry,
         geometry: { coordinates },
       },
     ],
   } = JSON.parse(fs.readFileSync(argv.input, 'utf8'));
   const [geoCollection] = drawShortestPathBetweenPolys({ coordinates });
   writeFile({ geoCollection });
+  const wkt = getWKT({ geometry });
+  console.log('\n\nThe WKT is:\n\n', JSON.stringify(wkt), '\n');
 } else {
   console.log(
     'You must specify the input GeoJSON file and the output file location'
