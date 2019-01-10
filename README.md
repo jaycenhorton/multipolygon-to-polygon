@@ -27,8 +27,6 @@ This tool reads in a GeoJSON file containing two disconnected polygons. It finds
 ### Output example:
 
 ```
-─ m2p -i ../m2p/test.geojson -o ../output.json
-
 The closest point in polygon 1 to polygon 2 is [ -76.054358, 39.284373 ]
 The closest point in polygon 1 to polygon 2 is [ -76.054401, 39.284506 ]
 Polygons redrawn with connection between [ -76.054358, 39.284373 ] and [ -76.054401, 39.284506 ]
