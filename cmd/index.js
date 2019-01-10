@@ -3,12 +3,12 @@ const argv = require('yargs').argv;
 const fs = require('fs');
 const Wkt = require('wicket');
 
-const writeFile = ({ geoCollection }) => {
+const writeFile = ({ outputFile, geoCollection }) => {
   console.log(
     '\nThe GeoJSON to be written to the output file is:\n\n',
     JSON.stringify(geoCollection)
   );
-  fs.writeFile('out.json', JSON.stringify(geoCollection), function(err) {
+  fs.writeFile(outputFile, JSON.stringify(geoCollection), function(err) {
     if (err) {
       return console.log(err);
     }
@@ -89,7 +89,7 @@ if (argv.input && argv.output) {
     ],
   } = JSON.parse(fs.readFileSync(argv.input, 'utf8'));
   const [geoCollection] = drawShortestPathBetweenPolys({ coordinates });
-  writeFile({ geoCollection });
+  writeFile({ outputFile: argv.output, geoCollection });
   const wkt = getWKT({ geometry });
   console.log('\n\nThe WKT is:\n\n', JSON.stringify(wkt), '\n');
 } else {
