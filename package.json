@@ -18,6 +18,6 @@
   },
   "description": "a CLI utility to convert a multipolygon to a single polygon",
   "repository": "git@github.com:jaycenhorton/multipolygon-to-polygon.git",
-  "author": "jaycen horton <jaycen.horton@gmail.com>",
+  "author": "jaycen horton",
   "private": false
 }
